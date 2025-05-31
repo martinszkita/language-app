@@ -5,8 +5,8 @@ from .models import Word, Language
 # Create your views here.
 def display_words(request):
     words = Word.objects.all()
-    return render(request, 'word_list.html', {'words' : words})
+    return render(request, 'vocabulary/word_list.html', {'words' : words})
 
 def vocabulary_home(request):
-    return render(request, 'vocabulary_home.html')
+    return render(request, 'vocabulary/vocabulary_home.html')
     
