@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista słówek</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+        th {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;">Lista słówek</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Słówko</th>
+                <th>Język</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for word in words %}
+            <tr>
+                <td>{{ word.id }}</td>
+                <td>{{ word.name }}</td>
+                <td>{{ word.language }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">Brak słówek do wyświetlenia.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
