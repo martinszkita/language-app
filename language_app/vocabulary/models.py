@@ -1,10 +1,10 @@
 from django.db import models
 
 class Language(models.Model):
-    name=models.CharField(max_length=30)
+    name=models.CharField(max_length=30, unique=True)
     
     def __str__(self):
-        return f"{self.name}"
+        return self.name.lower() # dla czystości, zwraca nazwę języka małymi literami
 
 # Create your models here.
 class Word(models.Model):

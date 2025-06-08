@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Moja aplikacja językowa{% endblock %}</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/styles.css" %}">
+
     <style>
         body { font-family: sans-serif; margin: 0; padding: 0; }
         main { padding: 20px; }
@@ -11,6 +15,17 @@
 </head>
 <body>
     {% include "navbar.html" %}
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+                {{ message }}
+            </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
     
     <main>
         {% block content %}{% endblock %}
