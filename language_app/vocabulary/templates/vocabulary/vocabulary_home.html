@@ -5,9 +5,11 @@
     <a href="{% url "add_word" %}">
         <button class="button">Dodaj nowe słowo</button>
     </a>
-    <a href="{% url "word_list" %}">
-        <button class="button">Lista słów</button>
+
+    <a href="{% url 'word_list' language=language %}">
+        <button class="button">Lista słówek</button>
     </a>
+
 {% endblock %}
 
 
