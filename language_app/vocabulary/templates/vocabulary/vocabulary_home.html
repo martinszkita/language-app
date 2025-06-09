@@ -2,10 +2,10 @@
 
 {% block content %}
     <h1>Witaj w sekcji Vocabulary! dla jezyka: {{ language }}</h1>
-    <a href="{% url "add_word" %}">
+    <a href="{% url 'add_word' language=language %}">
         <button class="button">Dodaj nowe słowo</button>
     </a>
-    <a href="{% url "word_list" %}">
+    <a href="{% url 'word_list' language=language %}">
         <button class="button">Lista słów</button>
     </a>
 {% endblock %}

@@ -6,11 +6,19 @@ from django.contrib import messages
 from django.urls import resolve
 
 # Create your views here.
-def display_words(request):
-    language = resolve(request.path_info).kwargs.get('language')
-    print("chosen language:", language)
+def display_words(request, language=None):
+    """Display words for the selected language."""
+    if language is None:
+        language = resolve(request.path_info).kwargs.get('language')
     words = Word.objects.filter(language=language)
-    return render(request, 'vocabulary/word_list.html', {'language': language, 'words': words})
+    return render(
+        request,
+        'vocabulary/word_list.html',
+        {
+            'language': language,
+            'words': words,
+        },
+    )
 
 
 def vocabulary_home(request, language):
