@@ -1,9 +1,16 @@
 {% extends "base.html" %}
-
-{% block title %}Strona główna{% endblock %}
+{% block title %}Home page{% endblock %}
 
 {% block content %}
-    <h1>Witaj w aplikacji językowej!</h1>
-    <p>To jest strona główna Twojej aplikacji.</p>
-    <p>Możesz tutaj dodać więcej informacji lub linków do innych sekcji aplikacji.</p>
+<h2>Wybierz język do pracy:</h2>
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  {% for lang in languages %}
+    <a href="/{{ lang.name|lower }}/" class="language-button">
+      {{ lang.name|title }}
+    </a>
+  {% empty %}
+    <p>Brak języków w bazie.</p>
+  {% endfor %}
+</div>
 {% endblock %}
