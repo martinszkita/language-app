@@ -3,12 +3,13 @@
 {% block content %}
     <h2>Lista słówek: {{ language }}</h2>
     <table>
-        <tr><th>ID</th><th>Nazwa</th><th>Język</th></tr>
+        <tr><th>ID</th><th>Nazwa</th><th>Język</th><th>Tłumaczenie</th></tr>
         {% for word in words %}
         <tr>
             <td>{{ word.id }}</td>
             <td>{{ word.name }}</td>
             <td>{{ word.language }}</td>
+            <td>{{ word.polish_translation }}</td>
         </tr>
         {% endfor %}
     </table>

@@ -10,6 +10,7 @@ class Language(models.Model):
 class Word(models.Model):
     name=models.CharField(max_length=30)
     language=models.ForeignKey(Language, on_delete=models.CASCADE)
+    polish_translation=models.CharField(max_length=30, blank=True, null=True)
     
     def __str__(self):
-        return f"{self.name} - {self.language}"
+        return f"{self.name} - {self.language} - {self.polish_translation}"

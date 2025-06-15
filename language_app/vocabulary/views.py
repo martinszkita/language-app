@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.db import models
 from .models import Word, Language
 from .forms import WordForm
 from django.contrib import messages
@@ -30,11 +29,17 @@ def add_word(request):
     if request.method == 'POST':
         form = WordForm(request.POST)
         if form.is_valid():
+            word = form.save(commit=False)
+            # lang = resolve(request.path_info).kwargs.get('language').lower()
+            word.language = Language.objects.get(name='German')  
+            #word.language = resolve(request.path_info).kwargs.get('language')
             form.save()
+            
             messages.success(request, "Słowo zostało pomyślnie dodane.")
             return redirect('add_word')  # lub inna strona po dodaniu
     else:
         form = WordForm()
+        
     return render(request, 'vocabulary/add_word.html', {'form': form})
 
     
