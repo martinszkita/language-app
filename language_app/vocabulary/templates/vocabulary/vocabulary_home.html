@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Witaj w sekcji Vocabulary! dla jezyka: {{ language }}</h1>
-    <a href="{% url "add_word" %}">
+    <h1>Vocabulary_home: {{ language }}</h1>
+    <a href="add_word">
         <button class="button">Dodaj nowe słowo</button>
     </a>
 
-    <a href="{% url 'word_list' language=language %}">
+    <a href="word_list">
         <button class="button">Lista słówek</button>
     </a>
 
