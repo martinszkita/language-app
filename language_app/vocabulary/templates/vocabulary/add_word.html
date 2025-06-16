@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 
-{% block title %}Dodaj słowo w jezyku: {{ language}}{% endblock %}
+{% block title %}Dodaj słowo w języku: {{ language }}{% endblock %}
 
 {% block content %}
-  <h2>Dodaj nowe słowo</h2>
-  {% comment %} <form method="post">
+  <h2>Dodaj nowe słowo w języku: {{ language }}</h2>
+  <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Dodaj</button>
-  </form> {% endcomment %}
-  {{form}}
+    <button type="submit" class="button">Dodaj</button>
+  </form>
+  <a href="{% url 'word_list' language %}">
+    <button class="button">Powrót do listy słów</button>
+  </a>
 {% endblock %}
