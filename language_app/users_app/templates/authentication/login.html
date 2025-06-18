@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}LOGIN{% endblock %}
+
+{% block content %}
+
+  <form method="POST" action="">
+    {% csrf_token %}
+    <form>
+        <div class="mb-3">
+          <label for="exampleUsername" class="form-label">username</label>
+          <input type="text" class="form-control" name="username">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">password</label>
+          <input type="password" class="form-control" name="password">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+  </form>
+{% endblock %}
